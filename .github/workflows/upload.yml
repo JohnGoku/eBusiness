@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: DigitalOcean App Platform deployment
-        uses: johngoku/ebusiness
+        uses: johngoku/ebusiness@master
         with:
           app_name: e-business
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
