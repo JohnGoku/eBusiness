@@ -2,9 +2,5 @@ version: '3.8'
 services:
     api-service:
         build: ./
-        volumes:
-            - ./:/usr/src/app/
         ports:
             - 8080:8080
-        environment:
-            PORT: 8080
