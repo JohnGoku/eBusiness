@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container: 
-      image: JohnGoku/eBusiness
+      image: johngoku/ebusiness
     strategy:
       matrix:
         python-version: [3.8, 3.9]
