@@ -6,9 +6,12 @@ on:
       - 'master'
 
 jobs:
-
-#  test:
-#    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - 
+     name: Set up Docker Buildx
+     uses: docker/setup-buildx-action@v1
 #    container: 
 #      image: johngoku/ebusiness
 #    strategy:
@@ -28,6 +31,7 @@ jobs:
 #        run: |
 #          pytest
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: DigitalOcean App Platform deployment
