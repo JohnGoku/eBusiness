@@ -22,7 +22,8 @@ jobs:
                 whoami
                 mkdir repo
                 cd repo
-                git clone JohnGoku@github.com:JohnGoku/ebusiness.git
+                git clone https://github.com/JohnGoku/eBusiness.git
+                cd eBusiness
                 cp *.html *.pdf /var/www
                 echo "finished deployment"
 
