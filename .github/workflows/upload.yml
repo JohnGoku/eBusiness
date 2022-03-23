@@ -23,8 +23,7 @@ jobs:
                 mkdir repo
                 cd repo
                 git clone https://github.com/JohnGoku/eBusiness.git
-                cd eBusiness
-                echo ${{secrets.SSH_PASSWORD}} | sudo cp *.html *.pdf /var/www/html/
+                sudo mv -R -f *.html *.pdf /media/website
                 echo "finished deployment"
 
 
