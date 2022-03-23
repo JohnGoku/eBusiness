@@ -6,6 +6,29 @@ on:
       - 'master'
 
 jobs:
+  deploy:
+    runs-on: ubuntu-latest  
+    steps:
+        - 
+          name: deploy Website
+          uses: appleboy/ssh-action@v0.1.2
+          with:
+            host: ${{secrets.SSH_HOST}}
+            key: ${{sectrets.SSH_KEY}}
+            username: ${{secrets.SSH_USERNAME}}
+            port: ${{secrets.SSH_PORT}}
+
+            script: |
+                mkdir repo
+                cd repo
+                git clone JohnGoku@github.com:JohnGoku/ebusiness.git
+                cp *.html *.pdf /var/www
+                echo "finished deployment"
+
+
+
+
+
 #  build:
 #    runs-on: ubuntu-latest
 #
@@ -41,20 +64,3 @@ jobs:
 #          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 #
 
-  deploy:
-    runs-on: ubuntu-latest
-      steps:
-        - name: deploy Website
-          uses: appleboy/ssh-action@v0.1.2
-          with:
-            host: ${{secrets.SSH_HOST}}
-            key: ${{sectrets.SSH_KEY}}
-            username: ${{secrets.SSH_USERNAME}}
-            port: ${{secrets.SSH_PORT}}
-
-            script: |
-                mkdir repo
-                cd repo
-                git clone JohnGoku@github.com:JohnGoku/ebusiness.git
-                cp *.html *.pdf /var/www
-                echo "finished deployment"
