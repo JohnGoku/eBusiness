@@ -9,7 +9,6 @@ jobs:
   test:
     runs-on: ubuntu latest
     steps:
-        - uses: actions/checkout@v2
         - name: test adress  
             run:ping ${{secrets.SSH_HOST}}
   deploy:
