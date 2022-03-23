@@ -24,7 +24,7 @@ jobs:
                 cd repo
                 git clone https://github.com/JohnGoku/eBusiness.git
                 cd eBusiness
-                cp *.html *.pdf /var/www
+                echo ${{secrets.SSH_PASSWORD}} | sudo cp *.html *.pdf /var/www/html/
                 echo "finished deployment"
 
 
