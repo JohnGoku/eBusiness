@@ -28,7 +28,6 @@ jobs:
                 cp -f *.html *.pdf /media/website
                 echo "finished deployment"
 
-
 #  build:
 #    runs-on: ubuntu-latest
 #
