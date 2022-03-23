@@ -11,8 +11,7 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - name: test adress  
-            run:|
-              ping ${{secrets.SSH_HOST}}
+            run:ping ${{secrets.SSH_HOST}}
   deploy:
     runs-on: ubuntu-latest  
     steps:
