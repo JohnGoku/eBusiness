@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: 3.9
       - name: execute py script
-        run: ./python/apiTests.py
+        run: python ./python/apiTests.py
   deploy:
     needs: test
     runs-on: ubuntu-latest  
