@@ -23,7 +23,7 @@ jobs:
                 mkdir repo
                 cd repo
                 git clone https://github.com/JohnGoku/eBusiness.git
-                sudo mv -R -f *.html *.pdf /media/website
+                mv -R -f *.html *.pdf /media/website
                 echo "finished deployment"
 
 
