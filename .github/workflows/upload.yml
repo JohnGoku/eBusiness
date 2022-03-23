@@ -22,8 +22,10 @@ jobs:
                 whoami
                 mkdir repo
                 cd repo
-                git pull https://github.com/JohnGoku/eBusiness.git
-                mv *.html *.pdf /media/website
+                git clone https://github.com/JohnGoku/eBusiness.git
+                cd eBusiness
+                git pull
+                cp -f *.html *.pdf /media/website
                 echo "finished deployment"
 
 
