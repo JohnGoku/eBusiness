@@ -11,6 +11,7 @@ jobs:
         - name: test adress  
           run: ping ${{secrets.SSH_HOST}}
   deploy:
+    needs: test
     runs-on: ubuntu-latest  
     steps:
         - 
