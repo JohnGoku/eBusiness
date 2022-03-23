@@ -1,5 +1,4 @@
 name: upload
-
 on:
   push:
     branches:
@@ -10,7 +9,7 @@ jobs:
     runs-on: ubuntu latest
     steps:
         - name: test adress  
-            run:ping ${{secrets.SSH_HOST}}
+          run: ping ${{secrets.SSH_HOST}}
   deploy:
     runs-on: ubuntu-latest  
     steps:
