@@ -5,11 +5,6 @@ on:
       - 'master'
 
 jobs:
-  test:
-    runs-on: ubuntu latest
-    steps:
-        - name: test adress  
-          run: ping ${{secrets.SSH_HOST}}
   deploy:
     needs: test
     runs-on: ubuntu-latest  
