@@ -6,6 +6,13 @@ on:
       - 'master'
 
 jobs:
+  test:
+    runs-on: ubuntu latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: test adress  
+            run:|
+              ping ${{secrets.SSH_HOST}}
   deploy:
     runs-on: ubuntu-latest  
     steps:
@@ -14,11 +21,12 @@ jobs:
           uses: appleboy/ssh-action@master
           with:
             host: ${{secrets.SSH_HOST}}
-            key: ${{secrets.SSH_KEY}}
             username: ${{secrets.SSH_USERNAME}}
+            key: ${{secrets.SSH_KEY}}
             port: ${{secrets.SSH_PORT}}
 
             script: |
+                whoami
                 mkdir repo
                 cd repo
                 git clone JohnGoku@github.com:JohnGoku/ebusiness.git
