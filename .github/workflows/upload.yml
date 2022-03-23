@@ -6,7 +6,19 @@ on:
 
 
 jobs:
+  test:
+    runs-on: ubunut-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v2
+      - name: install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: execute py script
+        run: ./python/apiTest.py
   deploy:
+    needs: test
     runs-on: ubuntu-latest  
     steps:
         - 
