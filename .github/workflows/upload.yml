@@ -6,36 +6,55 @@ on:
       - 'master'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      -
+#        name: Checkout 
+#        uses: actions/checkout@v2
+#      -
+#        name: Login to Docker Hub
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKER_HUB_ACCESS_NAME }}
+#          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+#      -
+#        name: Set up Docker Buildx
+#        uses: docker/setup-buildx-action@v1
+#      -
+#        name: Build and push
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: .
+#          file: ./Dockerfile
+#          push: true
+#          tags: ${{ secrets.DOCKER_HUB_ACCESS_NAME }}/dockebusiness:latest
+#  deploy:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: DigitalOcean App Platform deployment
+#        uses: digitalocean/app_action@main
+#        with:
+#          app_name: johngoku-dockebusiness
+#          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+#
 
-    steps:
-      -
-        name: Checkout 
-        uses: actions/checkout@v2
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_ACCESS_NAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_ACCESS_NAME }}/dockebusiness:latest
   deploy:
-    needs: build
     runs-on: ubuntu-latest
-    steps:
-      - name: DigitalOcean App Platform deployment
-        uses: digitalocean/app_action@main
-        with:
-          app_name: johngoku-dockebusiness
-          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      steps:
+        - name: deploy Website
+          uses: appleboy/ssh-action@v0.1.2
+          with:
+            host: ${{secrets.SSH_HOST}}
+            key: ${{sectrets.SSH_KEY}}
+            username: ${{secrets.SSH_USERNAME}}
+            port: ${{secrets.SSH_PORT}}
+
+            script: |
+                mkdir repo
+                cd repo
+                git clone JohnGoku@github.com:JohnGoku/ebusiness.git
+                cp *.html *.pdf /var/www
+                echo "finished deployment"
