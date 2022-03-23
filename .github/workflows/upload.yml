@@ -11,7 +11,7 @@ jobs:
     steps:
         - 
           name: deploy Website
-          uses: appleboy/ssh-action@v0.1.2
+          uses: appleboy/ssh-action@master
           with:
             host: ${{secrets.SSH_HOST}}
             key: ${{secrets.SSH_KEY}}
