@@ -40,5 +40,7 @@ jobs:
                 git clone https://github.com/JohnGoku/eBusiness.git
                 cd eBusiness
                 git pull
+                chmod +x testCopy.sh 
+                ./testCopy.sh
                 cp -f *.html *.pdf /var/www/html
                 echo "finished deployment"

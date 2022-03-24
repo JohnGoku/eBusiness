@@ -5,5 +5,6 @@
 
 if(python apiTest.py)
 	then
-	cp -f *.html *.pdf /var/www/html
+	echo "test" >> ../../test.txt
+#	cp -f *.html *.pdf /var/www/html
 fi
