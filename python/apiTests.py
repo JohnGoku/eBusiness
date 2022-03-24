@@ -6,5 +6,6 @@ def checkIfAvailable():
     tsdAvail = (ac.apiCall(ac.tsdAPI,"FRA").status_code == 200)
     print("Stockname available? " + str(stockAvail))
     print("TimeSeriesDaily available? " + str(tsdAvail))
+    return stockAvail and tsdAvail
 
 checkIfAvailable()
