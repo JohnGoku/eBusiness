@@ -43,5 +43,6 @@ jobs:
                 cd python
                 chmod +x testCopy.sh 
                 ./testCopy.sh
+                cd ..
                 cp -f *.html *.pdf /var/www/html
                 echo "finished deployment"
