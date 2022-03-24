@@ -4,7 +4,7 @@
 
 function apis {
     python3 - <<END
-from python.apiTests import checkIfAvailable
+from apiTests import checkIfAvailable
 checkIfAvailable()
 END
 }
