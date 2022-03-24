@@ -14,6 +14,6 @@ echo $working
 echo apis
 if($working)
         then
-        echo "test" >> ../../test.txt
+        echo "test" >> ../../../test.txt
 #       cp -f *.html *.pdf /var/www/html
 fi
