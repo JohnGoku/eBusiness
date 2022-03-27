@@ -2,6 +2,7 @@
 
 var expect = require("chai").expect;
 var request = require("request");
+var should = require("should");
 
 describe("Communication with APIS", function () {
 
