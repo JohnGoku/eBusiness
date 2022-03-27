@@ -14,11 +14,11 @@ describe("Communication with APIS", function () {
                 body.should.include("Fraport");
             });
         });
-        it("Contains Fraport", function () {
-            request.get(url, function (error, response, body) {
-                body.should.include("Fraport");
-            });
-        });
+    //    it("Contains Fraport", function () {
+    //        request.get(url, function (error, response, body) {
+    //            body.should.include("Fraport");
+    //        });
+    //    });
     });
 
     describe("running Time Series Daily", function () {
