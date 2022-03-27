@@ -11,12 +11,12 @@ describe("Communication with APIS", function () {
         it("returns status 200", function () {
             request.get(url, function (error, response, body) {
                 response.statusCode.should.equal(200);
-                body.should.include("Fraport")
+                body.should.include("Fraport");
             });
         });
         it("Contains Fraport", function () {
-            request(url, function (error, response, body) {
-                body.should.include("Fraport");;
+            request.get(url, function (error, response, body) {
+                body.should.include("Fraport");
             });
         });
     });
