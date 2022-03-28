@@ -16,7 +16,7 @@ describe("Communication with APIS", function () {
         });
         it("Contains Fraport", function () {
             request.get(url, function (error, response, body) {
-                body.should.include("Fraport");
+                expect(body).to.include("Fraport");
             });
         });
     });
