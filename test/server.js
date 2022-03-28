@@ -11,13 +11,14 @@ describe("Communication with APIS", function () {
         it("returns status 200", function () {
             request.get(url, function (error, response, body) {
                 response.statusCode.should.equal(200);
+                expect(body).to.include("Bananarama");
             });
         });
-        it("Contains Fraport", function () {
-            request.get(url, function (error, response, body) {
-                expect(body).to.include("Fraport");
-            });
-        });
+    //    it("Contains Fraport", function () {
+    //        request.get(url, function (error, response, body) {
+    //            body.should.include("Fraport");
+    //        });
+    //    });
     });
 
     describe("running Time Series Daily", function () {
