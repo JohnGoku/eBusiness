@@ -33,6 +33,4 @@ describe("Communication with APIS", function () {
         it("returns the TSD-JSON", function () { });
     });
 
-    describe()
-
 });
