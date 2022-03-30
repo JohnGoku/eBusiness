@@ -102,3 +102,165 @@ function loadSuggestions(symbolInput){
         }
  }
 
+ function createChart(rueckgabeAPI) {
+
+    console.log(rueckgabeAPI);
+
+    // Split timestamp and data into separate arrays
+    var labels = [], openData = [], highData = [], lowData = [], closeData = [], volumeData = [];
+
+    // https://stackoverflow.com/questions/1078118/how-do-i-iterate-over-a-json-structure
+    jQuery.each(rueckgabeAPI, function (index, value) {
+
+        labels.push(index);
+        openData.push(parseFloat(value["1. open"]));
+        highData.push(parseFloat(value["2. high"]));
+        lowData.push(parseFloat(value["3. low"]));
+        closeData.push(parseFloat(value["4. close"]));
+        volumeData.push(parseFloat(value["5. volume"]));
+
+    });
+
+    // reverse data
+    labels.reverse();
+    openData.reverse();
+    highData.reverse();
+    lowData.reverse();
+    closeData.reverse();
+    volumeData.reverse();
+
+    // log data
+    console.log(labels);
+    console.log(openData);
+    console.log(highData);
+    console.log(lowData);
+    console.log(closeData);
+    console.log(volumeData);
+
+    const data = {
+        // datasets: [{
+        //     label: 'My First dataset',
+        //     backgroundColor: 'rgb(255, 99, 132)',
+        //     borderColor: 'rgb(255, 99, 132)',
+        //     data: [0, 10, 5, 2, 20, 30, 45],
+        // }],
+        // datasets: [{
+        //     data: rueckgabeAPI
+        // }]
+        labels: labels,
+        datasets: [
+            {
+                label: 'open',
+                data: openData,
+                fill: false,
+                yAxisID: 'y',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    // 'rgba(54, 162, 235, 0.2)',
+                    // 'rgba(255, 206, 86, 0.2)',
+                    // 'rgba(75, 192, 192, 0.2)',
+                    // 'rgba(153, 102, 255, 0.2)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                ],
+            },
+            {
+                label: 'high',
+                data: highData,
+                fill: false,
+                yAxisID: 'y',
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.6)',
+                    // 'rgba(255, 206, 86, 0.2)',
+                    // 'rgba(75, 192, 192, 0.2)',
+                    // 'rgba(153, 102, 255, 0.2)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                ],
+            },
+            {
+                label: 'low',
+                data: lowData,
+                fill: false,
+                yAxisID: 'y',
+                backgroundColor: [
+                    'rgba(255, 206, 86, 0.6)',
+                    // 'rgba(75, 192, 192, 0.2)',
+                    // 'rgba(153, 102, 255, 0.2)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                ],
+            },
+            {
+                label: 'close',
+                data: closeData,
+                fill: false,
+                yAxisID: 'y',
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.6)',
+                    // 'rgba(153, 102, 255, 0.2)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                ],
+            },
+            {
+                label: 'volume',
+                data: volumeData,
+                fill: true,
+                yAxisID: 'y1',
+                type: 'bar',
+                backgroundColor: [
+                    'rgba(153, 102, 255, 0.6)',
+                    // 'rgba(255, 159, 64, 0.2)'
+                ],
+            },
+        ]
+
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    // stacked: true,
+                    title: {
+                        display: true,
+                        text: 'Datum'
+                    },
+                },
+                y: {
+                    // stacked: true
+                    title: {
+                        display: true,
+                        text: 'Täglicher Wert'
+                    },
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: 'Volume'
+                    },
+                    // grid line settings
+                    grid: {
+                        drawOnChartArea: false, // only want the grid lines for one axis to show up
+                    },
+                }
+            },
+        }
+    };
+
+    $('#diagrams').html('<canvas id="myChart"></canvas>');
+
+    // if(typeof myChart !== 'undefined') {
+    //     myChart.destroy();
+    // }
+
+    myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+}
+
