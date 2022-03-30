@@ -3,8 +3,9 @@
     "",
     "\\.github",
     "\\.github\\workflows",
-    "\\python"
+    "\\python",
+    "\\test"
   ],
-  "SelectedNode": "\\Disclaimer-hb2u.pdf",
+  "SelectedNode": "\\index.html",
   "PreviewInSolutionExplorer": false
 }
