@@ -1,3 +1,5 @@
+name: inform contributors
+
 on:
   push:
     branches:
@@ -20,7 +22,7 @@ jobs:
           # Required mail subject:
           subject: Github Actions job result
           # Required recipients' addresses:
-          to: ${{secrets.ADDRESS_DILEXX}}; ${{secrets.EMAIL_USERNAME}}
+          to: ${{secrets.ADDRESS_DILEXX}}; ${{secrets.EMAIL_USERNAME}}; ${{secrets.ADDRESS_YONDONO}}
           # Required sender full name (address can be skipped):
           from: Grandmaster Fulk # <user@example.com>
           # Optional whether this connection use TLS (default is true if server_port is 465)
