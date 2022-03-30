@@ -1,13 +1,9 @@
-function fenster(irgendwas) {
-    window.alert('Hallo Welt!'+irgendwas);
-}
-
 function loadSymbolData(symbolInput) {
 
     // alert(symbolInput);
 
     if (symbolInput != '') {
-//ab hier ins Script
+
         $.ajax({
             type: "GET",
             url: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + symbolInput + "&apikey=" + apiKey,
@@ -41,7 +37,7 @@ function loadSymbolData(symbolInput) {
 
             },
             dataType: "json"
-        }); //bis hier ins Script
+        });
 
     } else {
 
