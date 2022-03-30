@@ -1,1 +1,3 @@
-window.alert('Hallo Welt!');
+function fenster() {
+    window.alert('Hallo Welt!');
+}
