@@ -73,7 +73,7 @@ jobs:
                 docker run -it -d -p 80:80 --name test ${{secrets.DIGITALOCEAN_SSH_USER}}/docker_ebusiness
 
   inform_contributors:
-    needs: build
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Send mail
