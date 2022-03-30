@@ -96,7 +96,7 @@
     <!-- Main Page Ende -->
 
 
-    <script>
+    <script src="JavaScript/API_Aufruf.js">
 
         // createChart();
 
@@ -182,7 +182,7 @@
             // alert($('#exampleDataList').val());
 
             if ($('#exampleDataList').val() != '') {
-
+//ab hier ins Script
                 $.ajax({
                     type: "GET",
                     url: "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + $('#exampleDataList').val() + "&apikey=" + apiKey,
@@ -216,7 +216,7 @@
 
                     },
                     dataType: "json"
-                });
+                }); //bis hier ins Script
 
             } else {
 
