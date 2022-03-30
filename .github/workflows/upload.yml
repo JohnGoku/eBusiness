@@ -71,3 +71,29 @@ jobs:
                 docker stop test
                 docker rm test
                 docker run -it -d -p 80:80 --name test ${{secrets.DIGITALOCEAN_SSH_USER}}/docker_ebusiness
+
+  inform_contributors:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # Required mail server address:
+          server_address: mail.vhs.cloud
+          # Required mail server port:
+          server_port: 587
+          # Optional (recommended): mail server username:
+          username: ${{secrets.EMAIL_USERNAME}}
+          # Optional (recommended) mail server password:
+          password: ${{secrets.EMAIL_PASSWORD}}
+          # Required mail subject:
+          subject: Github Actions job result
+          # Required recipients' addresses:
+          to: ${{secrets.ADDRESS_DILEXX}}; ${{secrets.EMAIL_USERNAME}}; ${{secrets.ADDRESS_YONDONO}}
+          # Required sender full name (address can be skipped):
+          from: Grandmaster Fulk # <user@example.com>
+          # Optional whether this connection use TLS (default is true if server_port is 465)
+          secure: false
+          # Optional plain body:
+          body: Build job of ${{github.repository}} completed successfully!
