@@ -1,7 +1,7 @@
 // test/server.js
-import { loadSymbolData } from ~/JavaScript/API_Aufruf.js; 
+//import loadSymbolData from ../JavaScript/API_Aufruf.js; 
 
-//var loadSymbolData = require('../JavaScript/API_Aufruf.js').loadSymbolData;
+var loadSymbolData = require('../JavaScript/API_Aufruf.js').loadSymbolData;
 var expect = require("chai").expect;
 var request = require("request");
 var should = require("should");
@@ -36,7 +36,7 @@ describe("Communication with APIS", function () {
 
     describe("running Symbol Data", function () {
         it("API runs successful", function () {
-            (loadSymbolData("FRA.FRK"));
+            loadSymbolData("FRA.FRK");
         });
     });
 });
