@@ -35,7 +35,7 @@ describe("Communication with APIS", function () {
         it("Contains necessary information for graphics", function () {
             request.get(url, function (error, response, body) {
                 expect(body).to.include("open");
-                expect(body).to.include("close");
+                expect(body).to.include("clode");
                 //to.include()
             });
         });
