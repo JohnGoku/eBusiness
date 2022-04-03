@@ -1,3 +1,5 @@
+module.exports =  loadSymbolData
+
 function loadSymbolData(symbolInput) {
 
     // alert(symbolInput);
