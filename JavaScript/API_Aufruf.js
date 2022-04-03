@@ -1,6 +1,6 @@
-module.exports =  loadSymbolData
 
-function loadSymbolData(symbolInput) {
+
+export function loadSymbolData(symbolInput) {
 
     // alert(symbolInput);
 
@@ -263,5 +263,4 @@ function loadSuggestions(symbolInput){
 
 }
 
-var loadSymbolData = this.loadSymbolData;
 
