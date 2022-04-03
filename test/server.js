@@ -1,7 +1,7 @@
 // test/server.js
 //import loadSymbolData from '../JavaScript/API_Aufruf.js'; 
+//var loadSymbolData = require('../JavaScript/API_Aufruf');
 
-var loadSymbolData = require('../JavaScript/API_Aufruf');
 var expect = require("chai").expect;
 var request = require("request");
 var should = require("should");
@@ -32,11 +32,19 @@ describe("Communication with APIS", function () {
                 expect(response.statusCode).to.equal(200);
             });
         });
+        it("Contains necessary information for graphics", function () {
+            request.get(url, function (error, response, body) {
+                expect(body).
+                to.include("open");
+                to.include("close");
+                //to.include()
+            });
+        });
     });
 
-    describe("running Symbol Data", function () {
+    /*describe("running Symbol Data", function () {
         it("API runs successful", function () {
             expect(loadSymbolData("FRA.FRK")).to.equal(0);
         });
-    });
+    });*/
 });
