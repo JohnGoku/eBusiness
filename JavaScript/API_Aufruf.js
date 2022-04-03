@@ -263,3 +263,5 @@ function loadSuggestions(symbolInput){
 
 }
 
+var loadSymbolData = this.loadSymbolData;
+
