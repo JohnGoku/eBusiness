@@ -1,4 +1,5 @@
 // test/server.js
+import loadSymbolData from "../JavaScript/API_Aufruf.js"; 
 
 var expect = require("chai").expect;
 var request = require("request");
@@ -30,7 +31,13 @@ describe("Communication with APIS", function () {
                 expect(response.statusCode).to.equal(200);
             });
         });
-        it("returns the TSD-JSON", function () { });
     });
 
+    describe("running Symbol Data", function () {
+        it("API runs successful", function () {
+            request(url, function (error, response, body) {
+                expect(loadSymbolData("FRA.FRK")).to.equal(0);
+            });
+        });
+    });
 });

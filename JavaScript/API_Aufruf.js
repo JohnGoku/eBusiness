@@ -28,10 +28,11 @@ function loadSymbolData(symbolInput) {
                 } else {
                     alert(JSON.stringify(data));
                 }
-
+                return 0;
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.status);
+                return 1;
             },
             complete: function (data) {
 
