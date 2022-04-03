@@ -1,5 +1,5 @@
 // test/server.js
-import loadSymbolData from '../JavaScript/API_Aufruf.js'; 
+import {loadSymbolData} from "../JavaScript/API_Aufruf.js"; 
 
 var expect = require("chai").expect;
 var request = require("request");
