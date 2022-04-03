@@ -36,9 +36,7 @@ describe("Communication with APIS", function () {
 
     describe("running Symbol Data", function () {
         it("API runs successful", function () {
-            request(url, function (error, response, body) {
-                expect(loadSymbolData("FRA.FRK")).to.equal(0);
-            });
+            expect(loadSymbolData("FRA.FRK")).to.equal(0);
         });
     });
 });
