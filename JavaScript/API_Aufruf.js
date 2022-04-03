@@ -1,6 +1,6 @@
 
 
-export function loadSymbolData(symbolInput) {
+var loadSymbolData = module.exports = function loadSymbolData(symbolInput) {
 
     // alert(symbolInput);
 
