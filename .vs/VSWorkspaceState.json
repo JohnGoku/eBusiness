@@ -3,9 +3,10 @@
     "",
     "\\.github",
     "\\.github\\workflows",
+    "\\JavaScript",
     "\\python",
     "\\test"
   ],
-  "SelectedNode": "\\python\\apiTests.py",
+  "SelectedNode": "\\JavaScript\\API_Aufruf.js",
   "PreviewInSolutionExplorer": false
 }
